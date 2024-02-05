@@ -1,12 +1,13 @@
 import { describe, it, expect } from 'vitest'
-
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
+
 import CgNav from '../CgNav.vue'
+import { routes } from '../../router/routes'
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: []
+  routes
 })
 
 describe('CgNav', () => {
