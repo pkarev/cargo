@@ -1,0 +1,36 @@
+@import '@/assets/mixins';
+
+.cg-nav {
+  display: flex;
+  align-items: center;
+}
+
+.cg-nav__link {
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 8px var(--gap);
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  text-decoration: none;
+  color: var(--font-color);
+
+  &:visited {
+    color: var(--font-color);
+  }
+
+  &:active,
+  &:focus {
+    color: var(--font-color-link-interact);
+  }
+
+  @include desktop-hover {
+    color: var(--font-color-link-interact);
+  }
+}

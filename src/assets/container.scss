@@ -1,0 +1,19 @@
+@import '@/assets/mixins';
+
+.cg-container {
+  @include media-mobile {
+    padding-left: var(--gap);
+    padding-right: var(--gap);
+  }
+
+  @include media-tablet {
+    padding-left: var(--gap-tablet);
+    padding-right: var(--gap-tablet);
+  }
+
+  @include media-desktop {
+    width: 1128px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

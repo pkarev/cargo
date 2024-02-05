@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import CgTours from '@/components/CgTours.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <CgTours />
   </main>
 </template>

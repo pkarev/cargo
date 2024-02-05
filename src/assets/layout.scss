@@ -1,0 +1,14 @@
+.cg-holy-grail {
+  min-height: 100vh;
+}
+
+.cg-holy-grail,
+.cg-holy-grail__app {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.cg-holy-grail__main {
+  flex-grow: 1;
+}

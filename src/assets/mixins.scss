@@ -1,0 +1,25 @@
+@mixin media-mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (min-width: 768px) and (max-width: 1159px) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (min-width: 1160px) {
+    @content;
+  }
+}
+
+@mixin desktop-hover {
+  &:hover {
+    @media (hover: hover) {
+      @content;
+    }
+  }
+}
