@@ -13,6 +13,11 @@ const router = createRouter({
       path: '/drivers',
       name: 'drivers',
       component: () => import('../views/DriversView.vue')
+    },
+    {
+      path: '/tour/:id',
+      name: 'tour',
+      component: () => import('../components/CgTourCard.vue')
     }
   ]
 })

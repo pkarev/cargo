@@ -10,7 +10,7 @@ const { tour } = defineProps<{
   <article class="cg-tour">
     <div class="cg-tour__route-inner">
       <span class="cg-tour__customer">{{ tour.customer }}</span>
-      <span class="cg-tour__route"> {{ tour.from }} - {{ tour.to }} </span>
+      <span class="cg-tour__route">{{ tour.from }} - {{ tour.to }}</span>
     </div>
 
     <div class="cg-tour__details-inner">
