@@ -10,5 +10,7 @@ declare module '@vue/test-utils' {
     findInputByPlaceholder(
       placeholder: string
     ): DOMWrapper<HTMLInputElement>
+
+    findByTestId(selector: string): DOMWrapper<any>
   }
 }

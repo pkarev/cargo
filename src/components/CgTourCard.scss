@@ -1,0 +1,63 @@
+@import '@/assets/mixins';
+
+.cg-tour-card__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: calc(-1 * var(--gap));
+  margin-left: calc(var(--gap-half) * -1);
+  margin-right: calc(var(--gap-half) * -1);
+}
+
+.cg-tour-card__field {
+  flex-grow: 1;
+  margin-top: var(--gap);
+  margin-left: calc(var(--gap-half));
+  margin-right: calc(var(--gap-half));
+
+  @include media-mobile {
+    width: 100%;
+  }
+
+  @include media-tablet {
+    width: calc(50% - var(--gap-half));
+  }
+
+  @include media-desktop {
+    width: calc(50% - var(--gap-half));
+  }
+}
+
+.cg-tour-card__footer {
+  display: flex;
+  margin-top: var(--gap);
+
+  @include media-mobile {
+    margin-left: calc(var(--gap-half) * -1);
+    margin-right: calc(var(--gap-half) * -1);
+  }
+
+  @include media-tablet {
+    justify-content: flex-end;
+  }
+
+  @include media-desktop {
+    justify-content: flex-end;
+  }
+}
+
+.cg-tour-card__button {
+  @include media-mobile {
+    width: calc(50% - var(--gap-half));
+    margin: 0 calc(var(--gap-half));
+  }
+
+  @include media-tablet {
+    margin-left: var(--gap-half);
+  }
+
+  @include media-desktop {
+    margin-left: var(--gap);
+  }
+}
