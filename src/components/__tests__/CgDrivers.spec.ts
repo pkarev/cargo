@@ -43,7 +43,7 @@ describe('CgDrivers', () => {
         }
       })
 
-      expect(wrapper.findAllComponents(CgDriverCard).length).toBe(mockDirvers.length)
+      expect(wrapper.findAllComponents(CgDriversItem).length).toBe(mockDirvers.length)
     })
   })
 

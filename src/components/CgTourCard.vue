@@ -75,8 +75,8 @@ const onRevert = () => {
     </form>
 
     <div class="cg-tour-card__footer" v-if="isTourUpdated">
-      <CgButton class="cg-tour-card__button" @click="onRevert" :theme="'Invert'"> Cancel</CgButton>
-      <CgButton class="cg-tour-card__button" @click="onSave" :theme="'Main'"> Apply</CgButton>
+      <CgButton class="cg-tour-card__button" @click="onRevert" :theme="'Invert'">Cancel</CgButton>
+      <CgButton class="cg-tour-card__button" @click="onSave" :theme="'Main'">Apply</CgButton>
     </div>
   </article>
 </template>
