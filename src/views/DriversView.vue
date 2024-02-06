@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import CgDrivers from '@/components/CgDrivers.vue'
+import { drivers } from '@/api/fixture'
 </script>
 
 <template>
   <main>
-    <CgDrivers />
+    <CgDrivers :drivers="drivers" />
   </main>
 </template>

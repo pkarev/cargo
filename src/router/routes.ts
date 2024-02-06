@@ -8,14 +8,22 @@ export const routes: RouteRecordRaw[] = [
     component: ToursView
   },
   {
+    path: '/tour/:id',
+    name: 'Tour',
+    component: () => import('../components/CgTourCard.vue'),
+    meta: {
+      isHiddenInNav: true
+    }
+  },
+  {
     path: '/drivers',
     name: 'Drivers',
     component: () => import('../views/DriversView.vue')
   },
   {
-    path: '/tour/:id',
-    name: 'Tour',
-    component: () => import('../components/CgTourCard.vue'),
+    path: '/driver/:id',
+    name: 'Driver',
+    component: () => import('../components/CgDriverCard.vue'),
     meta: {
       isHiddenInNav: true
     }
