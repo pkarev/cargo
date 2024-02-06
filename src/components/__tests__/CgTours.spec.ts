@@ -14,11 +14,11 @@ let router: Router
 beforeEach(async () => {
   router = createRouter({
     history: createWebHistory(),
-    routes,
+    routes
   })
 
   await router.push('/')
-  await router.isReady();
+  await router.isReady()
 })
 describe('CgTours', () => {
   it('renders title', () => {
