@@ -49,31 +49,28 @@ const onRevert = () => {
     <h1 class="cg-title-level-1">Tour</h1>
 
     <form class="cg-tour-card__form">
-      <CgInput class="cg-tour-card__field"
-               v-model="localTour.customer"
-               placeholder="Customer"
+      <CgInput class="cg-tour-card__field" v-model="localTour.customer" placeholder="Customer" />
+      <CgSelect
+        class="cg-tour-card__field"
+        v-model="localTour.from"
+        placeholder="From"
+        :options="[localTour.from]"
+        data-testid="from"
       />
-      <CgSelect class="cg-tour-card__field"
-                v-model="localTour.from"
-                placeholder="From"
-                :options="[localTour.from]"
-                data-testid="from"
+      <CgSelect
+        class="cg-tour-card__field"
+        v-model="localTour.to"
+        placeholder="To"
+        :options="[localTour.to]"
+        data-testid="to"
       />
-      <CgSelect class="cg-tour-card__field"
-                v-model="localTour.to"
-                placeholder="To"
-                :options="[localTour.to]"
-                data-testid="to"
-      />
-      <CgInput class="cg-tour-card__field"
-               v-model="localTour.shipmentDate"
-               placeholder="When"
-      />
-      <CgSelect class="cg-tour-card__field"
-                v-model="localTour.driver.name"
-                placeholder="Driver"
-                :options="[localTour.driver.name]"
-                data-testid="driver"
+      <CgInput class="cg-tour-card__field" v-model="localTour.shipmentDate" placeholder="When" />
+      <CgSelect
+        class="cg-tour-card__field"
+        v-model="localTour.driver.name"
+        placeholder="Driver"
+        :options="[localTour.driver.name]"
+        data-testid="driver"
       />
     </form>
 

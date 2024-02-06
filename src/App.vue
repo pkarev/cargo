@@ -14,3 +14,5 @@ import CgNav from '@/components/CgNav.vue'
     <RouterView />
   </main>
 </template>
+
+<style scoped lang="scss" src="./App.scss"></style>

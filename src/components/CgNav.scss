@@ -3,6 +3,8 @@
 .cg-nav {
   display: flex;
   align-items: center;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
 }
 
 .cg-nav__link {
