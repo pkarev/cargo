@@ -1,0 +1,23 @@
+@import '@/assets/mixins';
+
+.cg-drivers-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  border: 1px solid var(--border-color);
+  padding: var(--gap);
+  border-radius: var(--border-radius);
+
+  @include desktop-hover {
+    border-color: var(--border-color-interact);
+    outline: 2px solid var(--border-color-interact);
+    outline-offset: -1px;
+  }
+}
+
+.cg-drivers-item__name {
+  color: var(--color-primary);
+  margin: 0;
+  margin-right: var(--gap);
+}
