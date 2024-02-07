@@ -1,8 +1,13 @@
-import { describe, it, vi, expect } from 'vitest'
+import { describe, it, vi, expect, beforeEach } from 'vitest'
 import { flushPromises, shallowMount } from '@vue/test-utils'
 import ToursView from '../ToursView.vue'
 import CgTours from '../../components/CgTours.vue'
 import CgButton from '../../components/CgButton.vue'
+import { createPinia, setActivePinia } from 'pinia'
+
+beforeEach(() => {
+  setActivePinia(createPinia())
+})
 
 describe('ToursView', () => {
   it('renders properly on tour load success', async () => {

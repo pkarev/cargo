@@ -1,22 +1,20 @@
 <script setup lang="ts">
 import CgTours from '@/components/CgTours.vue'
 import useLoadTours, { type LoadToursApi } from '@/use-cases/load-tours'
-import { inject, onMounted, reactive, ref } from 'vue'
-import type { Tour } from '@/model'
+import { inject, onMounted, ref } from 'vue'
 import CgButton from '@/components/CgButton.vue'
+import { useToursStore } from '@/stores/tours'
 
 const loadTourError = ref('')
 const isLoading = ref(false)
-const tours: Tour[] = reactive([])
+const { tours, setTours } = useToursStore()
 
 const api: LoadToursApi = inject('api') as LoadToursApi
 const resetTours = () => {
-  Object.assign(tours, [])
+  setTours([])
   loadTourError.value = ''
 }
-const setTours = (newTours: Tour[]) => {
-  Object.assign(tours, newTours)
-}
+
 const setLoading = (val: boolean) => {
   isLoading.value = val
 }
