@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import CgDrivers from '@/components/CgDrivers.vue'
 import { vueRouter } from 'storybook-vue3-router'
-import { drivers } from '@/api/fixture'
+import { mockDrivers } from '@/api/fixture'
 
 const meta: Meta<typeof CgDrivers> = {
   component: CgDrivers
@@ -20,6 +20,6 @@ export const Primary: Story = {
   })
 }
 Primary.args = {
-  drivers: [drivers[0], drivers[1], drivers[2], drivers[3]]
+  drivers: mockDrivers
 }
 Primary.decorators = [vueRouter()]

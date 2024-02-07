@@ -1,13 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-
 import { mount } from '@vue/test-utils'
-import CgDrivers from '../CgDrivers.vue'
 import { createRouter, createWebHistory, Router } from 'vue-router'
-import { routes } from '../../router/routes'
-import { drivers } from '../../api/fixture'
+import CgDrivers from '../CgDrivers.vue'
 import CgDriversItem from '../CgDriversItem.vue'
+import { routes } from '../../router/routes'
+import { mockDrivers } from '../../api/fixture'
 
-const mockDirvers: Driver[] = [drivers[0], drivers[1], drivers[2], drivers[3]]
 let router: Router
 beforeEach(async () => {
   router = createRouter({
@@ -23,7 +21,7 @@ describe('CgDrivers', () => {
     it('title', () => {
       const wrapper = mount(CgDrivers, {
         props: {
-          drivers: mockDirvers
+          drivers: mockDrivers
         },
         global: {
           plugins: [router]
@@ -36,21 +34,21 @@ describe('CgDrivers', () => {
     it('list', () => {
       const wrapper = mount(CgDrivers, {
         props: {
-          drivers: mockDirvers
+          drivers: mockDrivers
         },
         global: {
           plugins: [router]
         }
       })
 
-      expect(wrapper.findAllComponents(CgDriversItem).length).toBe(mockDirvers.length)
+      expect(wrapper.findAllComponents(CgDriversItem).length).toBe(mockDrivers.length)
     })
   })
 
   it('triggers router link with correct url', async () => {
     const wrapper = mount(CgDrivers, {
       props: {
-        drivers: mockDirvers
+        drivers: mockDrivers
       },
       global: {
         plugins: [router]
@@ -62,6 +60,6 @@ describe('CgDrivers', () => {
     await cgDriver.trigger('click')
 
     expect(push).toHaveBeenCalledTimes(1)
-    expect(push).toHaveBeenCalledWith(`/driver/${drivers[0].id}`)
+    expect(push).toHaveBeenCalledWith(`/driver/${mockDrivers[0].id}`)
   })
 })

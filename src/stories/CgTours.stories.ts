@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import CgTours from '@/components/CgTours.vue'
-import { tours } from '@/api/fixture'
+import { mockTours } from '@/api/fixture'
 import { vueRouter } from 'storybook-vue3-router'
 
 const meta: Meta<typeof CgTours> = {
@@ -19,7 +19,7 @@ export const Primary: Story = {
     template: '<CgTours :tours="args.tours"/>'
   }),
   args: {
-    tours: [tours[0], tours[1], tours[2], tours[3]]
+    tours: [mockTours[0], mockTours[1], mockTours[2], mockTours[3]]
   }
 }
 

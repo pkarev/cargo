@@ -2,13 +2,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
 import type { Router } from 'vue-router'
-
 import CgTours from '../CgTours.vue'
 import CgToursItem from '../CgToursItem.vue'
-import { tours } from '../../api/fixture'
 import { routes } from '../../router/routes'
+import { mockTours } from '../../api/fixture'
 
-const mockTours = [tours[0], tours[1], tours[2], tours[3]]
 let router: Router
 
 beforeEach(async () => {
@@ -61,6 +59,6 @@ describe('CgTours', () => {
     await CgTour.trigger('click')
 
     expect(push).toHaveBeenCalledTimes(1)
-    expect(push).toHaveBeenCalledWith(`/tour/${tours[0].id}`)
+    expect(push).toHaveBeenCalledWith(`/tour/${mockTours[0].id}`)
   })
 })

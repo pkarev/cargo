@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import CgDriversItem from '@/components/CgDriversItem.vue'
-import { drivers } from '@/api/fixture'
+import { mockDrivers } from '@/api/fixture'
 
 const meta: Meta<typeof CgDriversItem> = {
   component: CgDriversItem
@@ -21,5 +21,5 @@ export const Primary: Story = {
 }
 
 Primary.args = {
-  driver: drivers[0]
+  driver: mockDrivers[0]
 }
