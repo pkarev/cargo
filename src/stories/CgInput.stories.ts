@@ -14,10 +14,10 @@ export const Primary: Story = {
     setup: () => {
       return { args }
     },
-    template: '<CgInput v-model="args.inputValue" :placeholder="args.placeholder"/>'
-  }),
-  args: {
-    modelValue: '',
-    placeholder: 'Placeholder'
-  }
+    template: '<CgInput v-model="args.modelValue" :placeholder="args.placeholder"/>'
+  })
+}
+Primary.args = {
+  modelValue: '',
+  placeholder: 'Placeholder'
 }

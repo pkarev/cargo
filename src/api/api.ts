@@ -1,10 +1,10 @@
 import { tours } from '@/api/fixture'
-import type { LoadToursApi } from '@/use-cases/load-tours'
+import type { GetToursApi } from '@/model'
 
-export const fakeApi: LoadToursApi = {
-  loadTours: async () => {
+export const fakeApi: GetToursApi = {
+  getTours: async () => {
     return Promise.resolve({
-      tours
+      response: tours
     })
   }
 }

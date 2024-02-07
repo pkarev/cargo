@@ -15,9 +15,11 @@ describe('ToursView', () => {
       global: {
         provide: {
           api: {
-            loadTours: vi.fn().mockImplementation(async () => {
-              return Promise.resolve([])
-            })
+            getTours: async () => {
+              return Promise.resolve({
+                response: []
+              })
+            }
           }
         }
       }
@@ -33,11 +35,11 @@ describe('ToursView', () => {
       global: {
         provide: {
           api: {
-            loadTours: vi.fn().mockImplementation(async () => {
+            getTours: async () => {
               return Promise.resolve({
                 error: 'test error'
               })
-            })
+            }
           }
         }
       }
@@ -46,29 +48,34 @@ describe('ToursView', () => {
     await flushPromises()
 
     expect(wrapper.findComponent(CgTours).exists()).toBeFalsy()
+    expect(wrapper.text()).includes('An error occurred while loading tours:')
   })
 
   it('retries to load tours on retry button click', async () => {
-    const loadTours = vi.fn()
-    loadTours.mockImplementationOnce(async () => Promise.reject('error'))
+    const getTours = vi.fn()
+    getTours.mockImplementationOnce(async () => Promise.reject('error'))
     const wrapper = shallowMount(ToursView, {
       global: {
         provide: {
           api: {
-            loadTours
+            getTours
           }
         }
       }
     })
     await flushPromises()
 
-    expect(loadTours).toHaveBeenCalledTimes(1)
+    expect(getTours).toHaveBeenCalledTimes(1)
 
-    loadTours.mockImplementationOnce(async () => Promise.resolve([]))
+    getTours.mockImplementationOnce(async () =>
+      Promise.resolve({
+        response: []
+      })
+    )
     const retryButton = await wrapper.findComponent(CgButton)
     await retryButton.trigger('click')
     await flushPromises()
 
-    expect(loadTours).toHaveBeenCalledTimes(2)
+    expect(getTours).toHaveBeenCalledTimes(2)
   })
 })

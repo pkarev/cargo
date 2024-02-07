@@ -10,7 +10,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/tour/:id',
     name: 'Tour',
-    component: () => import('../components/CgTourCard.vue'),
+    component: () => import('../views/TourCardView.vue'),
     meta: {
       isHiddenInNav: true
     }

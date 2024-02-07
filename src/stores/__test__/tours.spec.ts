@@ -29,4 +29,13 @@ describe('Tours store', () => {
     expect(toursStore.tours.length).toBe(1)
     expect(toursStore.tours[0]).toEqual(mockTour)
   })
+
+  it('gets tour by id', () => {
+    const toursStore = useToursStore()
+
+    toursStore.setTours([mockTour])
+
+    expect(toursStore.getTourById(mockTour.id).value).toEqual(mockTour)
+    expect(toursStore.getTourById(100500).value).toBe(null)
+  })
 })
