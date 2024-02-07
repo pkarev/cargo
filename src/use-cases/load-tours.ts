@@ -1,18 +1,29 @@
 import type { Tour } from '@/model'
 
-export const loadTours = async (toursLoader: ToursLoader) => {
+export const loadTours = async ({
+  notifyError,
+  resetTours,
+  setTours,
+  api,
+  setLoading
+}: ToursLoader) => {
+  setLoading(true)
+
   try {
-    const { error, tours } = await toursLoader.api.loadTours()
+    resetTours()
+    const { error, tours } = await api.loadTours()
 
     if (error) {
-      toursLoader.notifyError(error)
+      notifyError(error)
 
       return
     }
 
-    toursLoader.setTours(tours || [])
+    setTours(tours || [])
   } catch (e) {
-    toursLoader.notifyError('Unexpected error')
+    notifyError('Unexpected error')
+  } finally {
+    setLoading(false)
   }
 }
 
@@ -31,7 +42,9 @@ export type LoadToursApi = {
 export interface ToursLoader {
   api: LoadToursApi
   notifyError: (message: string) => void
+  resetTours: () => void
   setTours: (tours: Tour[]) => void
+  setLoading: (val: boolean) => void
 }
 
 export type LoadToursResponse = {
