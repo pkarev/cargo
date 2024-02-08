@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import CgTourCard from '@/components/CgTourCard.vue'
 import type { Tour } from '@/model'
 import { vueRouter } from 'storybook-vue3-router'
+import { mockDrivers } from '@/api/fixture'
 
 const meta: Meta<typeof CgTourCard> = {
   component: CgTourCard
@@ -29,10 +30,11 @@ export const Primary: Story = {
     setup() {
       return { args }
     },
-    template: '<CgTourCard :tour="args.tour"/>'
+    template: '<CgTourCard :tour="args.tour" :drivers="args.drivers"/>'
   }),
   args: {
-    tour: demoTour
+    tour: demoTour,
+    drivers: mockDrivers
   }
 }
 

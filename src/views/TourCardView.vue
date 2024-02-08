@@ -25,7 +25,7 @@ onMounted(async () => {
     </template>
 
     <template v-else>
-      <CgTourCard :tour="tour" v-if="tour" />
+      <CgTourCard :tour="tour" :drivers="[]" v-if="tour" />
       <p v-else>Tour is not found</p>
     </template>
   </main>

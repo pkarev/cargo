@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed, reactive, watch } from 'vue'
 import CgInput from '@/components/CgInput.vue'
-import type { Tour } from '@/model'
+import type { Driver, Tour } from '@/model'
 import { cloneDeep, isEqual } from 'lodash'
 import CgButton from '@/components/CgButton.vue'
 import CgSelect from '@/components/CgSelect.vue'
 
-const { tour } = defineProps<{
+const props = defineProps<{
   tour: Tour
+  drivers: Driver[]
 }>()
 
 const localTour: Tour = reactive({
@@ -24,7 +25,7 @@ const localTour: Tour = reactive({
 })
 
 watch(
-  tour,
+  props.tour,
   (newTour) => {
     Object.assign(localTour, cloneDeep(newTour))
   },
@@ -32,7 +33,7 @@ watch(
 )
 
 const isTourUpdated = computed<boolean>(() => {
-  return !isEqual(tour, localTour)
+  return !isEqual(props.tour, localTour)
 })
 
 const onSave = () => {
@@ -40,8 +41,12 @@ const onSave = () => {
 }
 
 const onRevert = () => {
-  Object.assign(localTour, cloneDeep(tour))
+  Object.assign(localTour, cloneDeep(props.tour))
 }
+
+const availableOptions = computed(() => {
+  return [...props.drivers, props.tour.driver]
+})
 </script>
 
 <template>
@@ -67,9 +72,11 @@ const onRevert = () => {
       <CgInput class="cg-tour-card__field" v-model="localTour.shipmentDate" placeholder="When" />
       <CgSelect
         class="cg-tour-card__field"
-        v-model="localTour.driver.name"
+        v-model="localTour.driver"
         placeholder="Driver"
-        :options="[localTour.driver.name]"
+        :options="availableOptions"
+        track-by="id"
+        label="name"
         data-testid="driver"
       />
     </form>

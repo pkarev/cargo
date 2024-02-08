@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import CgTourCard from '../CgTourCard.vue'
 import { mount } from '@vue/test-utils'
 import type { Tour } from '../../model'
+import { mockDrivers } from '../../api/fixture'
 
 const mockTour: Tour = {
   id: 0,
@@ -19,7 +20,8 @@ describe('CgTourCard', () => {
   it('renders properly', () => {
     const wrapper = mount(CgTourCard, {
       props: {
-        tour: mockTour
+        tour: mockTour,
+        drivers: mockDrivers
       }
     })
 
@@ -28,13 +30,14 @@ describe('CgTourCard', () => {
     expect(wrapper.findByTestId('from').find('select').element.value).includes('Heilbronn')
     expect(wrapper.findByTestId('to').find('select').element.value).includes('Menden (Sauerland)')
     expect(wrapper.findInputByPlaceholder('When').element.value).includes('10/21/2099')
-    expect(wrapper.findByTestId('driver').find('select').element.value).includes('Luke Drees')
+    expect(wrapper.findByTestId('driver').find('select').element.value).includes('18')
   })
 
   it('shows controls', async () => {
     const wrapper = mount(CgTourCard, {
       props: {
-        tour: mockTour
+        tour: mockTour,
+        drivers: mockDrivers
       }
     })
 
@@ -51,7 +54,8 @@ describe('CgTourCard', () => {
   it('resets changes on Cancel button click', async () => {
     const wrapper = mount(CgTourCard, {
       props: {
-        tour: mockTour
+        tour: mockTour,
+        drivers: mockDrivers
       }
     })
 
