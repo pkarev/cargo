@@ -10,15 +10,13 @@ import type { CgApi, Driver, Tour } from '@/model'
 
 const api: CgApi = inject('api') as CgApi
 
-const { tours, setTours } = useToursStore()
-console.log(tours)
+const { setTours } = useToursStore()
 const { fetchData: loadTours, error } = useFetchData<Tour[]>({
   setData: setTours,
   fetchCb: () => api.getTours()
 })
 
 const { drivers, setDrivers } = useDriversStore()
-console.log(drivers)
 const { fetchData: loadDrivers } = useFetchData<Driver[]>({
   setData: setDrivers,
   fetchCb: () => api.getDrivers()
