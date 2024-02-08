@@ -12,17 +12,13 @@ beforeEach(() => {
     fetchCb,
     notifyError: vi.fn(),
     setData: vi.fn(),
-    resetLocalData: vi.fn(),
-    setLoading: vi.fn()
+    resetLocalData: vi.fn()
   }
 })
 describe('Handle fetch', () => {
   it('inits data fetching properly', async () => {
     await handleFetch(fetcher)
 
-    expect(fetcher.setLoading).toHaveBeenCalledTimes(2)
-    expect(fetcher.setLoading).toHaveBeenCalledWith(true)
-    expect(fetcher.setLoading).toHaveBeenCalledWith(false)
     expect(fetcher.resetLocalData).toHaveBeenCalledTimes(1)
     expect(fetcher.fetchCb).toHaveBeenCalledTimes(1)
   })

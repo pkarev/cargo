@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { inject, onMounted } from 'vue'
 import CgTours from '@/components/CgTours.vue'
 import CgButton from '@/components/CgButton.vue'
-import { useLoadTours } from '@/custom-hooks/load-tours'
+import { useFetchData } from '@/custom-hooks/fetch-data'
+import { useToursStore } from '@/stores/tours'
+import type { GetToursApi, Tour } from '@/model'
 
-const { error, loadTours, tours } = useLoadTours()
+const { tours, setTours } = useToursStore()
+const api: GetToursApi = inject('api') as GetToursApi
+const { error, fetchData: loadTours } = useFetchData<Tour[]>({
+  setData: setTours,
+  fetchCb: () => api.getTours()
+})
 
 onMounted(async () => {
   await loadTours()

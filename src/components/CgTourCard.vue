@@ -45,6 +45,7 @@ const onRevert = () => {
 }
 
 const availableOptions = computed(() => {
+  console.log(props.drivers)
   return [...props.drivers, props.tour.driver]
 })
 </script>

@@ -1,14 +1,4 @@
-import type { Tour } from '@/model'
-
-export const handleFetch = async ({
-  fetchCb,
-  setLoading,
-  resetLocalData,
-  setData,
-  notifyError
-}: Fetcher) => {
-  setLoading(true)
-
+export const handleFetch = async ({ fetchCb, resetLocalData, setData, notifyError }: Fetcher) => {
   try {
     resetLocalData()
     const { error, response } = await fetchCb()
@@ -26,8 +16,6 @@ export const handleFetch = async ({
     setData(response)
   } catch (e) {
     notifyError('Unexpected error')
-  } finally {
-    setLoading(false)
   }
 }
 
@@ -35,8 +23,7 @@ export interface Fetcher {
   fetchCb: () => Promise<CgApiResponse<any>>
   notifyError: (message: string) => void
   resetLocalData: () => void
-  setData: (tours: Tour[]) => void
-  setLoading: (val: boolean) => void
+  setData: (data: any) => void
 }
 
 export type CgApiResponse<T> = {

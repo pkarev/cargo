@@ -1,10 +1,19 @@
-import { mockTours } from '@/api/fixture'
-import type { GetToursApi } from '@/model'
+import { mockDrivers, mockTours } from '@/api/fixture'
+import type { CgApi, Driver, Tour } from '@/model'
 
-export const fakeApi: GetToursApi = {
-  getTours: async () => {
+export default class FakeCgApi implements CgApi {
+  drivers: Driver[] = mockDrivers
+  tours: Tour[] = mockTours
+
+  async getTours() {
     return Promise.resolve({
-      response: mockTours
+      response: this.tours
+    })
+  }
+
+  async getDrivers() {
+    return Promise.resolve({
+      response: this.drivers
     })
   }
 }

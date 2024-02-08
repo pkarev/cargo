@@ -15,6 +15,12 @@ export type Driver = {
   location: string
 }
 
-export type GetToursApi = {
+export interface GetToursApi {
   getTours(): Promise<CgApiResponse<Tour[]>>
 }
+
+export interface GetDriversApi {
+  getDrivers(): Promise<CgApiResponse<Driver[]>>
+}
+
+export interface CgApi extends GetToursApi, GetDriversApi {}
