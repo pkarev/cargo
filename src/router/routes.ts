@@ -23,7 +23,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/driver/:id',
     name: 'Driver',
-    component: () => import('../components/CgDriverCard.vue'),
+    component: () => import('../views/DriverCardView.vue'),
     meta: {
       isHiddenInNav: true
     }
